@@ -1,3 +1,5 @@
 Daria Mittseva
-Additional info
+
+SUSU, ЕТ-411
+
 Conflicting change from GitHub
