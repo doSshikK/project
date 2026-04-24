@@ -555,6 +555,7 @@ hr-agent/
 | `get_statistics` | Статистика | — |
 
 ### Формула скоринга кандидатов
+
 Score = w1 * SkillsMatch + w2 * ExperienceMatch + w3 * EducationMatch
 
 где:
@@ -569,80 +570,15 @@ Confidence = (matched_skills / required_skills) * 100%
 
 ---
 
-## 🧪 Тестирование
-
-### Запуск всех тестов
-
-```bash
-pytest tests/ -v
-Запуск конкретного теста
-bash
-pytest tests/test_agent.py -v
-pytest tests/test_candidate_db.py::TestSearch -v
-С покрытием кода
-bash
-pytest tests/ --cov=app --cov-report=html
-Результаты тестов (ожидаемые)
-text
-tests/test_agent.py ................... [ 25%]
-tests/test_candidate_db.py ............. [ 50%]
-tests/test_generate_test.py ........... [ 75%]
-tests/test_onboarding.py ............... [ 88%]
-tests/test_search_candidates.py ........ [100%]
-
-========================= 45 passed in 3.2s =========================
-🛣 Планы развития
-Ближайшие
-Docker контейнеризация — упрощение развёртывания
-
-Асинхронная обработка — увеличение пропускной способности
-
-Web интерфейс — административная панель на FastAPI + React
-
-Парсинг резюме по URL — поддержка ссылок с hh.ru и LinkedIn
-
-Среднесрочные
-Интеграция с HH.ru API — импорт вакансий и кандидатов
-
-Email уведомления — отправка тестов и опросов по email
-
-REST API — для интеграции с внешними CRM-системами
-
-Многопользовательский режим — разделение доступа по ролям
-
-Долгосрочные
-Мобильное приложение — React Native для HR
-
-ML рекомендации — предсказание успешности кандидата
-
-Аналитика трендов — дашборд с KPI и прогнозами
-
-🤝 Вклад в проект
-Форкните репозиторий
-
-Создайте ветку для фичи (git checkout -b feature/amazing)
-
-Закоммитьте изменения (git commit -m 'Add amazing feature')
-
-Запушьте ветку (git push origin feature/amazing)
-
-Откройте Pull Request
-
-📄 Лицензия
+# 📄 Лицензия
 MIT License. Подробнее в файле LICENSE.
 
-🙏 Благодарности
-OpenRouter — за доступ к LLM моделям
 
-python-telegram-bot — за отличную библиотеку
-
-FastAPI — за вдохновение в архитектуре
-
-📞 Контакты
+# 📞 Контакты
 Автор: Ваше Имя
 
-Email: your.email@example.com
+Email: dasha.mitceva23@mail.ru
 
-Telegram: @your_username
+Telegram: @ds_mitceva
 
 GitHub: https://github.com/your-username/hr-agent
