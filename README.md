@@ -217,22 +217,22 @@ Pulse опрос (от англ. "pulse" — пульс) — это регуля
 │  │ • candidate_skills  │ │                     │ │                     │   │
 │  │ • deleted_candidates│ │                     │ │                     │   │
 │  └─────────────────────┘ └─────────────────────┘ └─────────────────────┘   │
-│                                                                             │
+│                                                                            │
 │  ┌─────────────────────────────────────────────────────────────────────┐   │
 │  │                    SQLite + WAL режим                               │   │
-│  │              DB_PATH = "data/hr_agent.db"                            │   │
+│  │              DB_PATH = "data/hr_agent.db"                           │   │
 │  └─────────────────────────────────────────────────────────────────────┘   │
-└─────────────────────────────────────────────────────────────────────────────┘
+└────────────────────────────────────────────────────────────────────────────┘
                                        │
                                        ▼
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                          🧩 UTILITIES & HELPERS                             │
-│  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────────────┐   │
-│  │ file_parser │ │ formatters  │ │  charts.py  │ │     export.py       │   │
-│  │   .py       │ │    .py      │ │             │ │                     │   │
-│  │ PDF/DOCX    │ │ форматир-ие │ │ matplotlib  │ │ PDF / DOCX / Excel  │   │
-│  │ парсинг     │ │ вывода      │ │ графики     │ │ экспорт             │   │
-│  └─────────────┘ └─────────────┘ └─────────────┘ └─────────────────────┘   │
+│  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────────────┐    │
+│  │ file_parser │ │ formatters  │ │  charts.py  │ │     export.py       │    │
+│  │   .py       │ │    .py      │ │             │ │                     │    │
+│  │ PDF/DOCX    │ │ форматир-ие │ │ matplotlib  │ │ PDF / DOCX / Excel  │    │
+│  │ парсинг     │ │ вывода      │ │ графики     │ │ экспорт             │    │
+│  └─────────────┘ └─────────────┘ └─────────────┘ └─────────────────────┘    │
 └─────────────────────────────────────────────────────────────────────────────┘
 
 
@@ -254,22 +254,25 @@ Pulse опрос (от англ. "pulse" — пульс) — это регуля
 
 ```bash
 git clone https://github.com/your-username/hr-agent.git
-cd hr-agent
+cd hr-agent```
+
 # 2. Создание виртуального окружения
 
-# Linux/macOS
+```# Linux/macOS
 python3 -m venv venv
-source venv/bin/activate
+source venv/bin/activate``
 
 # Windows
 python -m venv venv
-venv\Scripts\activate
+venv\Scripts\activate```
 
 # 3. Установка зависимостей
-pip install -r requirements.txt
+
+```pip install -r requirements.txt```
 
 # 4. Настройка переменных окружения
-# Создайте файл .env в корне проекта:
+
+```# Создайте файл .env в корне проекта:
 
 # OpenRouter API (для LLM) — получить на https://openrouter.ai
 OPENROUTER_API_KEY=sk-or-v1-xxxx...
@@ -288,7 +291,7 @@ DEFAULT_MATCH_EXP_WEIGHT=0.3
 DEFAULT_MATCH_POSITION_WEIGHT=0.2
 
 # Логирование
-LOG_LEVEL=INFO
+LOG_LEVEL=INFO```
 
 # 5. Получение Telegram Bot Token
 
