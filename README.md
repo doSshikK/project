@@ -557,23 +557,25 @@ hr-agent/
 ## Формула скоринга кандидатов
 
 $$
-text{Score} = w_1 \cdot \text{SkillsMatch} + w_2 \cdot \text{ExperienceMatch} + w_3 \cdot \text{EducationMatch}
+\text{Score} = w_1 \cdot \text{SkillsMatch} + w_2 \cdot \text{ExperienceMatch} + w_3 \cdot \text{EducationMatch}
 $$
 
-
 $$
-text{SkillsMatch} = \frac{\text{matched\_skills}}{\text{required\_skills}}
-$$
-
-
-$$
-text{ExperienceMatch} = \min\left(\frac{\text{candidate\_exp}}{\text{required\_exp}}, 1.0\right)
+\text{SkillsMatch} = \frac{\text{matched\_skills}}{\text{required\_skills}}
 $$
 
+$$
+\text{ExperienceMatch} = \min\left(\frac{\text{candidate\_exp}}{\text{required\_exp}}, 1.0\right)
+$$
 
 $$
-text{Confidence} = \frac{\text{matched\_skills}}{\text{required\_skills}} \times 100\%
+\text{Confidence} = \frac{\text{matched\_skills}}{\text{required\_skills}} \times 100\%
 $$
+
+**Веса:**
+- $w_1 = 0.5$ (важность навыков)
+- $w_2 = 0.3$ (важность опыта)
+- $w_3 = 0.2$ (важность образования)
 
 ---
 
