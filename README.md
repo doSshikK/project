@@ -254,7 +254,8 @@ Pulse опрос (от англ. "pulse" — пульс) — это регуля
 
 ```bash
 git clone https://github.com/your-username/hr-agent.git
-cd hr-agent```
+cd hr-agent
+```
 
 # 2. Создание виртуального окружения
 
