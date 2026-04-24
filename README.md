@@ -554,19 +554,23 @@ hr-agent/
 | `list_candidates` | Список кандидатов | — |
 | `get_statistics` | Статистика | — |
 
-### Формула скоринга кандидатов
+## Формула скоринга кандидатов
 
-Score = w1 * SkillsMatch + w2 * ExperienceMatch + w3 * EducationMatch
+$$
+\text{Score} = w_1 \cdot \text{SkillsMatch} + w_2 \cdot \text{ExperienceMatch} + w_3 \cdot \text{EducationMatch}
+$$
 
-где:
+$$
+\text{SkillsMatch} = \frac{\text{matched\_skills}}{\text{required\_skills}}
+$$
 
-SkillsMatch = (совпавшие навыки) / (все требуемые навыки)
+$$
+\text{ExperienceMatch} = \min\left(\frac{\text{candidate\_exp}}{\text{required\_exp}}, 1.0\right)
+$$
 
-ExperienceMatch = min(опыт_кандидата / требуемый_опыт, 1.0)
-
-EducationMatch = коэффициент соответствия образования (1.0 по умолчанию)
-
-Confidence = (matched_skills / required_skills) * 100%
+$$
+\text{Confidence} = \frac{\text{matched\_skills}}{\text{required\_skills}} \times 100\%
+$$
 
 ---
 
