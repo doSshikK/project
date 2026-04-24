@@ -556,26 +556,32 @@ hr-agent/
 
 ## Формула скоринга кандидатов
 
-$$
-\text{Score} = w_1 \cdot \text{SkillsMatch} + w_2 \cdot \text{ExperienceMatch} + w_3 \cdot \text{EducationMatch}
-$$
+**Итоговая оценка:**
+Score = w1 × SkillsMatch + w2 × ExperienceMatch + w3 × EducationMatch
 
-$$
-\text{SkillsMatch} = \frac{\text{matched\_skills}}{\text{required\_skills}}
-$$
+text
 
-$$
-\text{ExperienceMatch} = \min\left(\frac{\text{candidate\_exp}}{\text{required\_exp}}, 1.0\right)
-$$
+**Где:**
 
-$$
-\text{Confidence} = \frac{\text{matched\_skills}}{\text{required\_skills}} \times 100\%
-$$
+| Компонент | Формула | Вес |
+|-----------|---------|-----|
+| SkillsMatch | matched_skills / required_skills | w1 = 0.5 |
+| ExperienceMatch | min(candidate_exp / required_exp, 1.0) | w2 = 0.3 |
+| EducationMatch | 1.0 (по умолчанию) | w3 = 0.2 |
 
-**Веса:**
-- $w_1 = 0.5$ — важность навыков
-- $w_2 = 0.3$ — важность опыта  
-- $w_3 = 0.2$ — важность образования
+**Метрика качества:**
+Confidence = (matched_skills / required_skills) × 100%
+
+text
+
+**Оценка Confidence:**
+
+| Значение | Оценка |
+|----------|--------|
+| ≥ 80% | 🏆 Отлично |
+| ≥ 60% | 📊 Хорошо |
+| ≥ 40% | ⚠️ Средне |
+| < 40% | ❌ Плохо |
 
 ---
 
