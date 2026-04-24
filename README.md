@@ -257,7 +257,7 @@ git clone https://github.com/your-username/hr-agent.git
 cd hr-agent
 ```
 
-# 2. Создание виртуального окружения
+### 2. Создание виртуального окружения
 
 ```
 # Linux/macOS
@@ -269,13 +269,13 @@ python -m venv venv
 venv\Scripts\activate
 ```
 
-# 3. Установка зависимостей
+### 3. Установка зависимостей
 
 ```
 pip install -r requirements.txt
 ```
 
-# 4. Настройка переменных окружения
+### 4. Настройка переменных окружения
 
 ```
 # Создайте файл .env в корне проекта:
@@ -300,7 +300,7 @@ DEFAULT_MATCH_POSITION_WEIGHT=0.2
 LOG_LEVEL=INFO
 ```
 
-# 5. Получение Telegram Bot Token
+### 5. Получение Telegram Bot Token
 
 1. Напишите [@BotFather](https://t.me/BotFather) в Telegram
 2. Отправьте команду `/newbot`
@@ -308,7 +308,7 @@ LOG_LEVEL=INFO
 4. Скопируйте полученный токен в `.env`
 
 
-# 6. Получение OpenRouter API Key
+### 6. Получение OpenRouter API Key
 
 1. Зарегистрируйтесь на [OpenRouter](https://openrouter.ai)
 2. Перейдите в раздел API Keys
@@ -341,10 +341,13 @@ LOG_LEVEL=INFO
 DEFAULT_MATCH_SKILLS_WEIGHT = 0.5   # важность навыков
 DEFAULT_MATCH_EXP_WEIGHT = 0.3      # важность опыта
 DEFAULT_MATCH_POSITION_WEIGHT = 0.2 # важность должности
+```
 
-▶️ Запуск
+## ▶️ Запуск
 
+```
 python main.py
+```
 
 ## 💬 Использование
 
