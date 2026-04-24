@@ -560,13 +560,16 @@ $$
 text{Score} = w_1 \cdot \text{SkillsMatch} + w_2 \cdot \text{ExperienceMatch} + w_3 \cdot \text{EducationMatch}
 $$
 
+
 $$
 text{SkillsMatch} = \frac{\text{matched\_skills}}{\text{required\_skills}}
 $$
 
+
 $$
 text{ExperienceMatch} = \min\left(\frac{\text{candidate\_exp}}{\text{required\_exp}}, 1.0\right)
 $$
+
 
 $$
 text{Confidence} = \frac{\text{matched\_skills}}{\text{required\_skills}} \times 100\%
