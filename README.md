@@ -258,21 +258,26 @@ cd hr-agent```
 
 # 2. Создание виртуального окружения
 
-```# Linux/macOS
+```
+# Linux/macOS
 python3 -m venv venv
 source venv/bin/activate``
 
 # Windows
 python -m venv venv
-venv\Scripts\activate```
+venv\Scripts\activate
+```
 
 # 3. Установка зависимостей
 
-```pip install -r requirements.txt```
+```
+pip install -r requirements.txt
+```
 
 # 4. Настройка переменных окружения
 
-```# Создайте файл .env в корне проекта:
+```
+# Создайте файл .env в корне проекта:
 
 # OpenRouter API (для LLM) — получить на https://openrouter.ai
 OPENROUTER_API_KEY=sk-or-v1-xxxx...
@@ -291,7 +296,8 @@ DEFAULT_MATCH_EXP_WEIGHT=0.3
 DEFAULT_MATCH_POSITION_WEIGHT=0.2
 
 # Логирование
-LOG_LEVEL=INFO```
+LOG_LEVEL=INFO
+```
 
 # 5. Получение Telegram Bot Token
 
