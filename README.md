@@ -197,8 +197,9 @@ pip install -r requirements.txt
 
 ### 4. Настройка переменных окружения
 
-# Создайте файл .env в корне проекта:
+Создайте файл `.env` в корне проекта:
 
+```bash
 # OpenRouter API (для LLM) — получить на https://openrouter.ai
 OPENROUTER_API_KEY=sk-or-v1-xxxx...
 
@@ -210,13 +211,14 @@ DEFAULT_MODEL=openai/gpt-4o-mini
 LLM_TIMEOUT=180
 LLM_TEMPERATURE=0.5
 
-# Настройки поиска
+# Настройки поиска (сумма весов должна быть = 1.0)
 DEFAULT_MATCH_SKILLS_WEIGHT=0.5
 DEFAULT_MATCH_EXP_WEIGHT=0.3
 DEFAULT_MATCH_POSITION_WEIGHT=0.2
 
 # Логирование
 LOG_LEVEL=INFO
+```
 
 ### 5. Получение Telegram Bot Token
 
@@ -318,7 +320,6 @@ python main.py
 - экспортируй кандидатов в эксель
 - экспорт кандидата в pdf ID
 
----
 
 ## 📋 Команды бота
 
