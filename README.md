@@ -4,7 +4,7 @@
 
 [![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://python.org)
 [![Telegram](https://img.shields.io/badge/Telegram-Bot-blue.svg)](https://core.telegram.org/bots)
-[![OpenRouter](https://img.shields.io/badge/OpenRouter-LLM-orange.svg)](https://openrouter.ai)
+[![OpenRouter](https://img.shields.io/badge/OpenRouter-LLM-orange.svg)](https://openrouter.ai) 
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 **HR Agent** — это AI-помощник для автоматизации HR-процессов, интегрированный с Telegram. Система помогает рекрутерам и HR-специалистам автоматизировать рутинные задачи, позволяя сократить время на подбор персонала и адаптацию сотрудников.
