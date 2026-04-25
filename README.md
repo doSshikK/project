@@ -162,7 +162,6 @@
 |---------|------------------|
 | **Facade** | `HRAgentFacade` — упрощает доступ к сервисам для бота |
 | **Singleton** | `settings`, `logger` — глобальные конфигурации |
-| **Strategy** | Matching скоринг (разные веса для разных вакансий) |
 | **Template Method** | Генерация тестов (LLM или fallback) |
 | **Repository** | `candidate_db`, `jobs_db`, `survey_db` — изоляция БД |
 
