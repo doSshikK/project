@@ -444,6 +444,7 @@ hr-agent/
 ## Формула скоринга кандидатов
 
 **Итоговая оценка:**
+
 $$ \text{Score} = w_1 \times \text{SkillsMatch} + w_2 \times \text{ExperienceMatch} + w_3 \times \text{EducationMatch} $$
 
 **Где:**
