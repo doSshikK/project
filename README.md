@@ -10,11 +10,13 @@
 **HR Agent** — это AI-помощник для автоматизации HR-процессов, интегрированный с Telegram. Система помогает рекрутерам и HR-специалистам автоматизировать рутинные задачи, экономя до 80% времени на подбор персонала и адаптацию сотрудников.
 
 [Возможности](#-возможности) •
-[Установка](#-установка) •
-[Конфигурация](#-конфигурация) •
-[Использование](#-использование) •
+[Технологии](#-технологии) •
 [Архитектура](#-архитектура) •
-[Документация](#-документация)
+[Установка](#-установка) •
+[Структура проекта](#-структура-проекта) •
+[Использование](#-использование) •
+[API и инструменты](#-api-и-инструменты) •
+[Контакты](#-контакты)
 
 </div>
 
@@ -115,7 +117,7 @@
 
 ---
 
-## 🏗 Архитектура
+# 🏗 Архитектура
 ```
 ┌─────────────────────────────────────────────┐
 │         🤖 Telegram Bot (UI)                │  ← Пользовательский интерфейс
@@ -123,8 +125,7 @@
 └─────────────────┬───────────────────────────┘
                   │
 ┌─────────────────▼───────────────────────────┐
-│         📋 Обработчики (handlers.py)        │  ← Маршрутизация
-│    • Триггеры  • Состояния  • Пагинация     │
+│         📋 Обработчики (handlers.py)        │  ← Маршрутизация    
 └─┬───────────────────────────────────────────┘
   │
 ┌─────────────────▼───────────────────────────┐
@@ -145,8 +146,7 @@
   │        │         │
   ▼        ▼         ▼
 ┌─────────────────────────────────────────────┐
-│         💾 База данных (SQLite)             │  ← Хранение данных
-│   Кандидаты · Вакансии · Опросы · Ответы    │
+│         💾 База данных (SQLite)             │  ← Хранение данных  
 └─────────────────────────────────────────────┘
   │
   ▼
@@ -197,7 +197,6 @@ pip install -r requirements.txt
 
 ### 4. Настройка переменных окружения
 
-```
 # Создайте файл .env в корне проекта:
 
 # OpenRouter API (для LLM) — получить на https://openrouter.ai
@@ -218,7 +217,6 @@ DEFAULT_MATCH_POSITION_WEIGHT=0.2
 
 # Логирование
 LOG_LEVEL=INFO
-```
 
 ### 5. Получение Telegram Bot Token
 
@@ -361,72 +359,65 @@ python main.py
 hr-agent/
 │
 ├── app/
-│ ├── agent/ # LLM-агент
-│ │ ├── hr_agent.py # HRAgent (ReAct + function calling)
-│ │ └── tools.py # 11 инструментов для LLM
+│ ├── agent/                       # LLM-агент
+│ │ ├── hr_agent.py                # HRAgent (ReAct + function calling)
+│ │ └── tools.py                   # 11 инструментов для LLM
 │ │
-│ ├── bot/ # Telegram бот (11 модулей)
-│ │ ├── telegram_bot.py # Точка входа, регистрация хендлеров
-│ │ ├── handlers.py # Маршрутизация сообщений (главный)
-│ │ ├── commands.py # /start, /cancel
-│ │ ├── states.py # Все константы и триггеры
-│ │ ├── utils.py # Вспомогательные функции
-│ │ ├── keyboards.py # Клавиатуры (Reply и Inline)
-│ │ ├── pagination.py # Кнопки "Далее/Назад"
-│ │ ├── documents.py # PDF/DOCX, ответы "да/нет"
-│ │ ├── candidates.py # Кандидаты и вакансии
-│ │ ├── surveys.py # Опросы NPS/Pulse
-│ │ └── tests_onboarding.py # Тесты и онбординг
+│ ├── bot/                         # Telegram бот (11 модулей)
+│ │ ├── telegram_bot.py            # Точка входа, регистрация хендлеров
+│ │ ├── handlers.py                # Маршрутизация сообщений (главный)
+│ │ ├── commands.py                # /start, /cancel
+│ │ ├── states.py                  # Все константы и триггеры
+│ │ ├── utils.py                   # Вспомогательные функции
+│ │ ├── keyboards.py               # Клавиатуры (Reply и Inline)
+│ │ ├── pagination.py              # Кнопки "Далее/Назад"
+│ │ ├── documents.py               # PDF/DOCX, ответы "да/нет"
+│ │ ├── candidates.py              # Кандидаты и вакансии
+│ │ ├── surveys.py                 # Опросы NPS/Pulse
+│ │ └── tests_onboarding.py        # Тесты и онбординг
 │ │
-│ ├── core/ # Ядро приложения
-│ │ ├── config.py # Pydantic настройки
-│ │ └── logger.py # loguru с ротацией
+│ ├── core/                        # Ядро приложения
+│ │ ├── config.py                  # Pydantic настройки
+│ │ └── logger.py                  # loguru с ротацией
 │ │
-│ ├── db/ # Базы данных (3 файла)
-│ │ ├── candidate_db.py # SQLite кандидатов (ядро поиска)
-│ │ ├── jobs_db.py # SQLite вакансий
-│ │ └── survey_db.py # SQLite опросов
+│ ├── db/                          # Слой работы с БД
+│ │ ├── candidate_db.py            # SQLite кандидатов (ядро поиска)
+│ │ ├── jobs_db.py                 # SQLite вакансий
+│ │ └── survey_db.py               # SQLite опросов
 │ │
-│ ├── models/ # Pydantic модели (3 файла)
-│ │ ├── candidate.py # Кандидат с валидацией
-│ │ ├── job.py # Вакансия с валидацией
-│ │ └── survey.py # Опросы и ответы
+│ ├── models/                      # Pydantic модели 
+│ │ ├── candidate.py               # Кандидат с валидацией
+│ │ ├── job.py                     # Вакансия с валидацией
+│ │ └── survey.py                  # Опросы и ответы
 │ │
-│ ├── services/ # Бизнес-логика (7 файлов)
-│ │ ├── hr_facade.py # ★ FACADE — единый вход
-│ │ ├── candidate_service.py # Кандидаты + поиск
-│ │ ├── hr_service.py # Вакансии + matching
-│ │ ├── job_matcher.py # Формализованный скоринг
-│ │ ├── analytics_service.py # Статистика и экспорт JSON
-│ │ ├── test_generator.py # LLM + fallback тесты
-│ │ └── onboarding_generator.py # 9 отделов онбординга
+│ ├── services/                    # Бизнес-логика 
+│ │ ├── hr_facade.py               # FACADE — единый вход
+│ │ ├── candidate_service.py       # Кандидаты + поиск
+│ │ ├── hr_service.py              # Вакансии + matching
+│ │ ├── job_matcher.py             # Формализованный скоринг
+│ │ ├── analytics_service.py       # Статистика и экспорт JSON
+│ │ ├── test_generator.py          # LLM + fallback тесты
+│ │ └── onboarding_generator.py    # 9 отделов онбординга
 │ │
-│ ├── utils/ # Утилиты (5 файлов)
-│ │ ├── file_parser.py # PDF/DOCX без LLM
-│ │ ├── formatters.py # Форматирование вывода
-│ │ ├── charts.py # Графики matplotlib
-│ │ ├── export.py # PDF/DOCX экспорт
-│ │ └── excel_export.py # Excel экспорт (openpyxl)
+│ ├── utils/                       # Утилиты 
+│ │ ├── file_parser.py             # парсинг из PDF/DOCX 
+│ │ ├── formatters.py              # Форматирование вывода
+│ │ ├── charts.py                  # Графики matplotlib
+│ │ ├── export.py                  # PDF экспорт
+│ │ └── excel_export.py            # Excel экспорт 
 │ │
-│ └── data/ # Базы данных SQLite
+│ └── data/                        # Базы данных SQLite (WAL режим)
 │ ├── hr_agent.db
 │ ├── hr_agent.db-shm
 │ └── hr_agent.db-wal
 │
-├── tests/ # Тесты (5 файлов)
-│ ├── test_agent.py # 8 тестов агента
-│ ├── test_candidate_db.py # CRUD + поиск + скоринг
-│ ├── test_generate_test.py # Генерация тестов
-│ ├── test_onboarding.py # 9 отделов + уровни
-│ └── test_search_candidates.py # Матчинг + нормализация
-│
-├── logs/
-│ └── hr_agent.log # Логи с ротацией (zip)
-│
-├── main.py # Главная точка входа
-├── requirements.txt # Все зависимости
-├── .env # Переменные окружения
-└── README.md # Документация
+├── tests/                         # Тесты 
+|
+├── logs/                          # Логи с ротацией (zip)
+│ 
+├── main.py                        # Главная точка входа
+└──requirements.txt                # Все зависимости
+
 ```
 
 ---
@@ -454,8 +445,6 @@ hr-agent/
 **Итоговая оценка:**
 Score = w1 × SkillsMatch + w2 × ExperienceMatch + w3 × EducationMatch
 
-text
-
 **Где:**
 
 | Компонент | Формула | Вес |
@@ -464,20 +453,13 @@ text
 | ExperienceMatch | min(candidate_exp / required_exp, 1.0) | w2 = 0.3 |
 | EducationMatch | 1.0 (по умолчанию) | w3 = 0.2 |
 
-**Метрика качества:**
-Confidence = (matched_skills / required_skills) × 100%
-
 ---
 
-# 📄 Лицензия
-MIT License. Подробнее в файле LICENSE.
-
-
 # 📞 Контакты
-Автор: Ваше Имя
+Автор: Митцева Дарья Сергеевна
 
 Email: dasha.mitceva23@mail.ru
 
 Telegram: @ds_mitceva
 
-GitHub: https://github.com/your-username/hr-agent
+GitHub: https://github.com/doSshikK/hr-agent
