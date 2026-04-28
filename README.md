@@ -201,11 +201,6 @@ OPENROUTER_API_KEY=sk-or-v1-xxxx...
 # Telegram Bot — получить у @BotFather
 TELEGRAM_BOT_TOKEN=1234567890:ABCdefGHIjklMNOpqrsTUVwxyz
 
-# Настройки LLM (опционально)
-DEFAULT_MODEL=openai/gpt-4o-mini
-LLM_TIMEOUT=180
-LLM_TEMPERATURE=0.5
-
 # Настройки поиска (сумма весов должна быть = 1.0)
 DEFAULT_MATCH_SKILLS_WEIGHT=0.5
 DEFAULT_MATCH_EXP_WEIGHT=0.3
